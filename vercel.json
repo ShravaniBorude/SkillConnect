@@ -1,0 +1,30 @@
+{
+  "$schema": "https://vercel.com/static/schema.json",
+  "version": 2,
+
+  "builds": [
+    {
+      "src": "backend/Dockerfile",
+      "use": "@vercel/docker",
+      "config": { "zeroConfig": true }
+    },
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+
+  "routes": [
+    { "src": "/api/(.*)", "dest": "https://$VERCEL_URL/api/$1" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ],
+
+  "env": {
+    "SPRING_PROFILES_ACTIVE": "prod",
+    "JWT_SECRET": "SkillConnectSuperSecretJWTKey2024DevModeOnly!MustBe256BitsLong",
+    "CORS_ALLOWED_ORIGINS": "*"
+  }
+}
