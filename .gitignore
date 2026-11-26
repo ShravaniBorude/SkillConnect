@@ -1,0 +1,20 @@
+# Compiled & Build outputs
+backend/target/
+backend/.mvn/
+frontend/dist/
+frontend/node_modules/
+
+# Environment & Uploads
+.env
+backend/.env
+frontend/.env
+frontend/.env.local
+uploads/
+*.log
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
